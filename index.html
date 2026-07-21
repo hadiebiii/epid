@@ -1,0 +1,876 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>چیت‌شیت جامع اپیدمیولوژی</title>
+  <style>
+
+:root {
+  --page: #f4f6f9;
+  --paper: #ffffff;
+  --ink: #172033;
+  --muted: #68758a;
+  --line: #dce3ec;
+  --blue: #1557a6;
+  --blue-soft: #eaf3ff;
+  --cyan: #147b8f;
+  --cyan-soft: #e9f8fb;
+  --violet: #6744a6;
+  --violet-soft: #f2edff;
+  --amber: #a35b00;
+  --amber-soft: #fff5df;
+  --rose: #a23c50;
+  --rose-soft: #fff0f3;
+  --danger: #aa2f2f;
+  --danger-soft: #fff1f0;
+  --shadow: 0 10px 28px rgba(26, 45, 75, .08);
+  --radius-xl: 22px;
+  --radius-lg: 16px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  direction: rtl;
+  background:
+    radial-gradient(circle at 90% 0%, rgba(21,87,166,.08), transparent 28rem),
+    radial-gradient(circle at 4% 38%, rgba(20,123,143,.06), transparent 24rem),
+    var(--page);
+  color: var(--ink);
+  font-family: "Vazirmatn", "IRANSansX", "IRANSans", "Segoe UI", Tahoma, Arial, sans-serif;
+  font-size: 15.5px;
+  font-weight: 400;
+  line-height: 2;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+main {
+  width: min(1480px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 30px 0 64px;
+}
+
+.section {
+  --accent: var(--blue);
+  --accent-soft: var(--blue-soft);
+  margin: 0 0 34px;
+  scroll-margin-top: 20px;
+}
+.section:nth-child(2) { --accent: var(--cyan); --accent-soft: var(--cyan-soft); }
+.section:nth-child(3) { --accent: var(--violet); --accent-soft: var(--violet-soft); }
+.section:nth-child(4) { --accent: var(--amber); --accent-soft: var(--amber-soft); }
+.section:nth-child(5) { --accent: var(--rose); --accent-soft: var(--rose-soft); }
+.section:nth-child(6) { --accent: #344d78; --accent-soft: #edf2fa; }
+
+.section-title {
+  position: relative;
+  margin: 0 0 15px;
+  padding: 15px 22px 15px 28px;
+  border: 1px solid color-mix(in srgb, var(--accent) 22%, var(--line));
+  border-right: 6px solid var(--accent);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(110deg, var(--accent-soft), rgba(255,255,255,.94) 58%);
+  box-shadow: 0 5px 18px rgba(26, 45, 75, .05);
+  color: var(--accent);
+  font-size: clamp(1.25rem, 2.3vw, 1.75rem);
+  font-weight: 900;
+  line-height: 1.55;
+  letter-spacing: -.015em;
+}
+
+.topic-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 14px;
+}
+
+.topic {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  background: rgba(255,255,255,.96);
+  box-shadow: var(--shadow);
+  break-inside: avoid;
+}
+
+.topic-title {
+  margin: 0;
+  padding: 13px 18px 12px;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(100deg, var(--accent-soft), #fff 78%);
+  color: var(--accent);
+  font-size: 1.02rem;
+  font-weight: 900;
+  line-height: 1.7;
+}
+
+.points {
+  list-style: none;
+  margin: 0;
+  padding: 8px 18px 12px;
+}
+
+.point {
+  position: relative;
+  margin: 0;
+  padding: 9px 28px 9px 5px;
+  border-bottom: 1px dashed #e1e6ed;
+  unicode-bidi: plaintext;
+  overflow-wrap: anywhere;
+}
+.point:last-child { border-bottom: 0; }
+.point::before {
+  content: "";
+  position: absolute;
+  right: 5px;
+  top: 1.12rem;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+.point strong { color: var(--accent); font-weight: 900; }
+.point code {
+  direction: ltr;
+  unicode-bidi: isolate;
+  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+  font-size: .92em;
+  background: #f0f4f8;
+  border: 1px solid #dce4ed;
+  border-radius: 5px;
+  padding: 1px 5px;
+}
+
+.point.trap {
+  margin: 8px 0 3px;
+  padding: 10px 39px 10px 11px;
+  border: 1px solid #f2c3be;
+  border-radius: 12px;
+  background: var(--danger-soft);
+  color: #762727;
+  font-weight: 750;
+}
+.point.trap::before {
+  content: "!";
+  top: 10px;
+  right: 8px;
+  width: 23px;
+  height: 23px;
+  display: grid;
+  place-items: center;
+  background: var(--danger);
+  color: #fff;
+  box-shadow: none;
+  font-size: .85rem;
+  font-weight: 900;
+}
+.point.trap strong { color: var(--danger); }
+
+.rapid-grid {
+  list-style: none;
+  counter-reset: rapid;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+.rapid-point {
+  counter-increment: rapid;
+  position: relative;
+  min-width: 0;
+  padding: 12px 48px 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--paper);
+  box-shadow: 0 6px 18px rgba(26,45,75,.05);
+  line-height: 1.85;
+  unicode-bidi: plaintext;
+  overflow-wrap: anywhere;
+}
+.rapid-point::before {
+  content: counter(rapid);
+  position: absolute;
+  right: 10px;
+  top: 11px;
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 9px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 900;
+  font-size: .82rem;
+}
+
+@media (max-width: 960px) {
+  main { width: min(100% - 22px, 820px); padding-top: 18px; }
+  .topic-grid { grid-template-columns: 1fr; }
+  .rapid-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 560px) {
+  body { font-size: 14.6px; line-height: 1.95; }
+  main { width: calc(100% - 14px); padding: 8px 0 30px; }
+  .section { margin-bottom: 23px; }
+  .section-title { padding: 12px 14px; border-radius: 13px; }
+  .topic { border-radius: 15px; }
+  .topic-title { padding: 11px 13px; }
+  .points { padding: 6px 11px 9px; }
+  .point { padding-right: 25px; }
+}
+
+@media print {
+  @page { size: A4; margin: 11mm; }
+  body { background: #fff; font-size: 10.5pt; line-height: 1.72; }
+  main { width: 100%; padding: 0; }
+  .section { margin-bottom: 18px; }
+  .section-title { box-shadow: none; background: #f3f6fa; }
+  .topic-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .topic, .rapid-point { box-shadow: none; break-inside: avoid; }
+  .topic-title { background: #f7f9fb; }
+  .point { padding-top: 5px; padding-bottom: 5px; }
+}
+
+  </style>
+</head>
+<body>
+<main>
+<section class="section" id="section-1">
+  <h2 class="section-title">۱) مبانی طلایی اپیدمیولوژی و مراقبت</h2>
+  <div class="topic-grid">
+    <article class="topic" id="topic-1-1">
+      <h3 class="topic-title">چهار ویژگی عامل عفونی</h3>
+      <ul class="points">
+        <li class="point">عفونت‌زایی (Infectivity): قدرت ورود و تکثیر عامل؛ شاخص آزمونی آن «میزان حمله ثانویه» است.</li>
+        <li class="point">بیماری‌زایی (Pathogenicity): موارد بالینی ÷ کل افراد آلوده.</li>
+        <li class="point">حدت (Virulence): موارد شدید ÷ موارد بالینی؛ اگر مرگ معیار شدت باشد، «میزان کشندگی» مطرح است.</li>
+        <li class="point">ایمنی‌زایی (Immunogenicity): توان تحریک پاسخ ایمنی؛ ایمنی آمیبیاز، سالمونلوز و گنوکوک کامل نیست و عفونت مجدد ممکن است.</li>
+        <li class="point trap">دام تستی: عفونت‌زایی را با بیماری‌زایی و حدت جابه‌جا نکن.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-1-2">
+      <h3 class="topic-title">عفونت مخفی، تحت‌بالینی و حامل</h3>
+      <ul class="points">
+        <li class="point">عفونت مخفی: آلودگی بدون علامت بالینی.</li>
+        <li class="point">عفونت تحت‌بالینی: علائم خفیف/زودگذر و تشخیص عمدتاً سرولوژیک؛ در پولیو، مننگوکوک و سالمونلای غیرتیفوئیدی پرتکرار است.</li>
+        <li class="point">حامل: فرد بدون تابلوی واضح که عامل را دفع و منتقل می‌کند؛ تا درمان می‌تواند منبع انتقال باشد.</li>
+        <li class="point trap">دام تستی: بیشترین موارد تحت‌بالینی در گزینه‌های کلاسیک = فلج اطفال.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-1-3">
+      <h3 class="topic-title">مخزن و زنجیره انتقال</h3>
+      <ul class="points">
+        <li class="point">چهار مخزن اصلی: انسان، حیوان، آب و خاک.</li>
+        <li class="point">تنها مخزن مهم انسانی: HIV، هرپس سیمپلکس، ترپونما، شیگلا، سالمونلا تیفی و ویبریو کلرا.</li>
+        <li class="point">خاک: آنتراکس، تتانی، بوتولیسم و برخی قارچ‌ها؛ آب: لژیونلا، سودوموناس و بورخولدریا.</li>
+        <li class="point">خفاش مخزن اولیه ابولا و MERS؛ شتر مخزن ثانویه MERS است.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-1-4">
+      <h3 class="topic-title">زمان‌های آزمونی</h3>
+      <ul class="points">
+        <li class="point">کمون: ورود عامل تا شروع علائم.</li>
+        <li class="point">نهفتگی: باقی‌ماندن عامل و فعال‌شدن مجدد بدون عفونت تازه؛ در واریسلا زوستر، HSV و EBV مطرح است.</li>
+        <li class="point">دوره واگیری: زمانی که عامل با قدرت آلوده‌کنندگی از بدن دفع می‌شود.</li>
+        <li class="point">میزان حمله ثانویه: موارد جدید در بین تماس‌یافتگان مستعد.</li>
+        <li class="point trap">دام تستی: کمون با نهفتگی یکی نیست.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-1-5">
+      <h3 class="topic-title">ایمنی گروهی و اثر گروهی</h3>
+      <ul class="points">
+        <li class="point">ایمنی گروهی پس از واکسیناسیون عمومی شکل می‌گیرد.</li>
+        <li class="point">برای سنجش بهره‌مندی غیرمستقیم، کاهش بروز در افراد غیرایمنِ جامعه واکسینه‌شده را بررسی کن.</li>
+        <li class="point">افراد غیرایمنِ محافظت‌شده، بهره‌گیرندگان اثر گروهی (Herd effect) هستند.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-1-6">
+      <h3 class="topic-title">پیشگیری، کنترل، حذف و ریشه‌کنی</h3>
+      <ul class="points">
+        <li class="point">پیشگیری: جلوگیری از ابتلا یا اپیدمی؛ واکسیناسیون مهم‌ترین ابزار بیماری‌های واگیر است.</li>
+        <li class="point">کنترل: کاهش بروز و شیوع تا سطح قابل‌قبول.</li>
+        <li class="point">حذف: رساندن انتقال/شیوع به سطح هدف در یک منطقه؛ ادامه مداخله لازم است.</li>
+        <li class="point">ریشه‌کنی: محو کامل جهانی عامل/بیماری و بی‌نیازی از مداخله.</li>
+        <li class="point trap">دام تستی: «محدود کردن وقوع و کاهش بروز/شیوع» = کنترل، نه ریشه‌کنی.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-1-7">
+      <h3 class="topic-title">مراقبت و آستانه اپیدمی</h3>
+      <ul class="points">
+        <li class="point">مراقبت: گردآوری، تحلیل، تفسیر و انتشار منظم و مستمر داده‌های سلامت؛ هدف اصلی پایش روند و کشف اپیدمی است.</li>
+        <li class="point">روش‌های تعیین اپیدمی: شمارش آستانه، میانگین + ۲ انحراف معیار، میانه + چارک سوم و جمع تزایدی.</li>
+        <li class="point">میانگین + ۲SD حساسیت بالا ولی ویژگی و PPV پایین دارد.</li>
+        <li class="point">آستانه هشداردهنده برای آمادگی زودهنگام و حساس‌تر؛ آستانه اپیدمیک برای اقدام کنترلی و ویژگی/PPV بالاتر است.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-1-8">
+      <h3 class="topic-title">سلامت واحد و توسعه پایدار</h3>
+      <ul class="points">
+        <li class="point">سلامت واحد = سلامت انسان + حیوان + محیط زیست.</li>
+        <li class="point">اهداف واگیر در توسعه پایدار: پایان اپیدمی ایدز، سل و مالاریا؛ مقابله با هپاتیت، بیماری‌های منتقله از آب و بیماری‌های فراموش‌شده گرمسیری.</li>
+        <li class="point">«پایان اپیدمی همه زئونوزها» عبارت دام‌دار و جزو فهرست کلاسیک نیست.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+<section class="section" id="section-2">
+  <h2 class="section-title">۲) بیماری‌های واگیر؛ مرور بیماری‌به‌بیماری</h2>
+  <div class="topic-grid">
+    <article class="topic" id="topic-2-1">
+      <h3 class="topic-title">HIV / AIDS</h3>
+      <ul class="points">
+        <li class="point">سطح محدود: شیوع عمومی &lt;۱٪ و در هیچ گروه پرخطر &gt;۵٪ نیست؛ متمرکز: عمومی &lt;۱٪ ولی حداقل یک گروه پرخطر &gt;۵٪؛ منتشر: عمومی &gt;۱٪.</li>
+        <li class="point">ایران در متن منبع: اپیدمی متمرکز؛ انتقال جنسی رو به افزایش و مصرف‌کنندگان تزریقی همچنان گروه کلیدی‌اند.</li>
+        <li class="point">گروه‌های پرخطر: مصرف‌کنندگان تزریقی، زنان تن‌فروش و مردان دارای تماس جنسی با مردان؛ STIها احتمال انتقال را بالا می‌برند.</li>
+        <li class="point">برنامه ۹۰-۹۰-۹۰: آگاهی از تشخیص، دسترسی به ART، سرکوب پایدار ویروس؛ ارجاع همه به فوق‌تخصص جزء آن نیست.</li>
+        <li class="point">تعریف AIDS: CD4 کمتر از ۲۰۰ یا عفونت فرصت‌طلب در فرد HIV مثبت، مستقل از CD4.</li>
+        <li class="point">مراقبت نسل دوم = ترکیب داده‌های سرولوژیک و رفتاری؛ همراه پایش STD، سل و هپاتیت.</li>
+        <li class="point trap">دام تستی: پیشگیری سطح دوم با طول عمر بیشتر می‌تواند شیوع را افزایش دهد، هرچند بروز و پیشرفت را کاهش می‌دهد.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-2-2">
+      <h3 class="topic-title">هپاتیت B؛ سن و مارکرها</h3>
+      <ul class="points">
+        <li class="point">هرچه سن ابتلا بالاتر: علامت‌دار شدن بیشتر، مزمن‌شدن کمتر؛ بیشترین خطر حامل مزمن در نوزادان است.</li>
+        <li class="point">حاد: HBsAg مثبت + anti-HBc IgM مثبت.</li>
+        <li class="point">ایمنی ناشی از واکسن: فقط anti-HBs مثبت.</li>
+        <li class="point">ایمنی پس از عفونت قبلی: HBsAg منفی + anti-HBs مثبت + anti-HBc IgG مثبت.</li>
+        <li class="point">حامل مزمن: HBsAg مثبت + anti-HBc IgG مثبت؛ HBeAg نشانه سرایت بیشتر است.</li>
+        <li class="point">در مناطق پُرشیوع، انتقال حوالی تولد/کودکی و مزمن‌شدن اهمیت بیشتری دارد.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-2-3">
+      <h3 class="topic-title">هپاتیت C و D</h3>
+      <ul class="points">
+        <li class="point">HCV در منبع با تزریق و سرنگ آلوده، به‌ویژه معتادان تزریقی، پیوند پررنگ دارد.</li>
+        <li class="point">بهترین محور پیشگیری آزمونی HCV: غربالگری خون اهدایی و رعایت ایمنی تزریق؛ واکسن ندارد.</li>
+        <li class="point">HDV برای تکثیر به HBV نیاز دارد؛ راه انتقال غالب خون و فرآورده‌های خونی است.</li>
+        <li class="point">واکسیناسیون HBV به‌طور غیرمستقیم از HDV پیشگیری می‌کند.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-2-4">
+      <h3 class="topic-title">هپاتیت A و E</h3>
+      <ul class="points">
+        <li class="point">هر دو عمدتاً مدفوعی-دهانی و آب/غذامحورند؛ HAV در کودکان اغلب بی‌علامت و هرگز مزمن نمی‌شود.</li>
+        <li class="point">دفع HAV از حدود ۱ تا ۳ هفته قبل از علائم آغاز می‌شود؛ بهداشت آب و غذا و واکسیناسیون محور پیشگیری است.</li>
+        <li class="point">HEV در جوانان/بالغین علامت‌دارتر است و کشندگی در بارداری بیشتر می‌شود.</li>
+        <li class="point">اپیدمی آب‌زاد با باردارِ بدحال، HEV را در ذهن فعال کند.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-2-5">
+      <h3 class="topic-title">آنفلوانزا</h3>
+      <ul class="points">
+        <li class="point">Antigenic shift فقط در تیپ A و زمینه‌ساز پاندمی؛ drift در A و B و زمینه‌ساز اپیدمی‌های فصلی است.</li>
+        <li class="point">کودکان سن مدرسه موتور انتشار؛ مرگ بیشتر در سالمندان و بیماری‌های زمینه‌ای.</li>
+        <li class="point">دوره واگیری آزمونی: حدود یک روز قبل تا ۳-۵ روز پس از شروع علائم.</li>
+        <li class="point">واکسیناسیون سالانه برای گروه‌های پرخطر و کارکنان سلامت؛ در منبع، ویروس‌های در گردش به مهارکننده کانال یونی مقاوم و به مهارکننده نورآمینیداز حساس‌ترند.</li>
+        <li class="point trap">دام تستی: shift را به B نسبت نده.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-2-6">
+      <h3 class="topic-title">سرخک</h3>
+      <ul class="points">
+        <li class="point">در اقلیم معتدل، اوج اپیدمی زمستان و بهار.</li>
+        <li class="point">تشخیص عفونت جدید: IgM یا افزایش چهاربرابری تیتر آنتی‌بادی.</li>
+        <li class="point">واکسن زنده ضعیف‌شده؛ بهترین پیشگیری سطح اول.</li>
+        <li class="point">گزارش بیماری فوری/تلفنی و کنترل تماس‌ها اهمیت دارد.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-2-7">
+      <h3 class="topic-title">سرخجه و بارداری</h3>
+      <ul class="points">
+        <li class="point">مخزن انسان؛ انتقال با آئروسل و ترشحات حلق و ادرار نوزاد مبتلا.</li>
+        <li class="point">واگیری: یک هفته قبل تا یک هفته بعد از راش.</li>
+        <li class="point">بیش از نیمی از موارد ممکن است بی‌علامت باشند؛ خطر اصلی، عفونت سه‌ماهه اول و سندرم سرخجه مادرزادی است.</li>
+        <li class="point">واکسن در بارداری ممنوع؛ پس از واکسن حداقل یک ماه بارداری به تعویق افتد.</li>
+        <li class="point">تزریق تصادفی واکسن، به‌تنهایی اندیکاسیون ختم بارداری نیست.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-2-8">
+      <h3 class="topic-title">اوریون</h3>
+      <ul class="points">
+        <li class="point">انتقال با قطرات بزاق و تماس مستقیم؛ تابلوی کلاسیک تب و پاروتیدیت.</li>
+        <li class="point">در کودکان خردسال موارد بی‌علامت بیشتر و با افزایش سن بیماری علامت‌دارتر می‌شود.</li>
+        <li class="point">تشخیص: IgM/افزایش تیتر یا PCR بزاق در روزهای اول؛ ادرار تا مدت طولانی‌تری می‌تواند مثبت بماند.</li>
+        <li class="point">ابتلا در سه‌ماهه اول می‌تواند خطر سقط را بالا ببرد.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-2-9">
+      <h3 class="topic-title">فلج اطفال</h3>
+      <ul class="points">
+        <li class="point">اکثریت قاطع عفونت‌ها بی‌علامت؛ کمتر از ۱٪ فلج ایجاد می‌کنند.</li>
+        <li class="point">فلج شل، نامتقارن و اندام تحتانی شایع‌تر؛ آسیب عصبی با افزایش سن شدیدتر.</li>
+        <li class="point">مخزن انسان؛ انتقال شخص‌به‌شخص و مدفوعی-دهانی؛ جداسازی ویروس از مدفوع و ترشحات حلق اهمیت دارد.</li>
+        <li class="point">یک مورد ویروس وحشی = اپیدمی؛ در متن منبع، واکسیناسیون کودکان زیر ۵ سال منطقه و استان‌های مجاور باید بسیار سریع (کمتر از ۸ روز) انجام شود.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-2-10">
+      <h3 class="topic-title">هاری؛ تصمیم سریع پس از تماس</h3>
+      <ul class="points">
+        <li class="point">اولین اقدام در همه تماس‌های واقعی: شست‌وشوی ۱۵-۲۰ دقیقه‌ای با آب و صابون.</li>
+        <li class="point">دسته I: لمس/غذا دادن/لیسیدن پوست سالم = اقدام اختصاصی لازم نیست.</li>
+        <li class="point">دسته II: خراش یا ساییدگی بدون خونریزی/لیسیدن پوست آسیب‌دیده = واکسن.</li>
+        <li class="point">دسته III: گازگرفتگی نافذ، آلودگی مخاط با بزاق یا تماس با خفاش = واکسن + ایمونوگلوبولین اطراف زخم.</li>
+        <li class="point">در منبع: برنامه ۵ دوز روزهای ۰،۳،۷،۱۴،۲۸؛ سابقه واکسیناسیون کامل = دو دوز ۰ و ۳.</li>
+        <li class="point">ایران اندمیک؛ سگ مهم‌ترین راه انتقال و کودکان/نوجوانان گروه پرخطرند.</li>
+        <li class="point trap">دام تستی: لیسیدن پوست سالم را با پوست آسیب‌دیده اشتباه نکن.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-2-11">
+      <h3 class="topic-title">تب خونریزی‌دهنده کریمه-کنگو</h3>
+      <ul class="points">
+        <li class="point">ناقل و مخزن مهم: کنه سخت Hyalomma.</li>
+        <li class="point">در ایران، مسیر پرتکرار آزمونی تماس با خون و گوشت تازه آلوده دام است؛ قصابان و کارکنان کشتارگاه پرخطرند.</li>
+        <li class="point">سیر: کمون، فاز مقدماتی تب و میالژی، فاز خونریزی‌دهنده، نقاهت.</li>
+        <li class="point">استان شاخص در منبع: سیستان و بلوچستان.</li>
+        <li class="point">پیشگیری: نگهداری دام بدون کنه پیش از ذبح، حفاظت فردی، تشخیص سریع؛ درمان زودهنگام ریباویرین در چارچوب منبع.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-2-12">
+      <h3 class="topic-title">MERS</h3>
+      <ul class="points">
+        <li class="point">مخزن اولیه خفاش و مخزن ثانویه شتر؛ انتقال انسان‌به‌انسان نیز ممکن است.</li>
+        <li class="point">پیوند جغرافیایی برجسته با شبه‌جزیره عربستان و تماس با شتر/مراکز درمانی.</li>
+        <li class="point">در سؤال دو مخزنی، ترتیب «خفاش سپس شتر» را حفظ کن.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-2-13">
+      <h3 class="topic-title">سل</h3>
+      <ul class="points">
+        <li class="point">مخزن اصلی انسان؛ کمون آزمونی ۲-۱۰ هفته.</li>
+        <li class="point">روش اصلی تشخیص سل ریوی: اسمیر خلط؛ در کودکان تست توبرکولین نقش بیشتری دارد.</li>
+        <li class="point">سل خارج‌ریوی شدید: مننژ، میلیاری، گوارشی، ادراری-تناسلی و ستون فقرات؛ غدد لنفاوی/پوست/پلور یک‌طرفه معمولاً کم‌ شدت‌ترند.</li>
+        <li class="point">BCG باسیل گاوی زنده ضعیف‌شده است؛ در متن منبع تزریق بعد از یک‌سالگی ضرورت روتین ندارد.</li>
+        <li class="point">بهترین کنترل: کشف سریع و درمان زودرس؛ قرنطینه عمومی معنا ندارد؛ گزارش فوری است.</li>
+        <li class="point">تماس نزدیکِ زیر ۵ سال یا HIV مثبت حتی با تست اولیه منفی، نیازمند ارزیابی و پیشگیری دارویی است.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-2-14">
+      <h3 class="topic-title">جذام</h3>
+      <ul class="points">
+        <li class="point">انسان مهم‌ترین مخزن؛ ترشحات مخاط بینی، به‌ویژه در نوع لپروماتوز، مسیر انتقال است.</li>
+        <li class="point">کمون بسیار طولانی؛ اپیدمی ناگهانی و الگوی فصلی مشخص ندارد.</li>
+        <li class="point">حذف جذام = شیوع کمتر از ۱ مورد در ۱۰هزار نفر؛ ایران در متن منبع در مرحله حذف است.</li>
+        <li class="point">تشخیص قطعی با ضایعه هیپوپیگمانته/قرمز همراه فقدان حس، آسیب عصب محیطی یا اسمیر پوستی مثبت.</li>
+        <li class="point">سطح سوم: مراقبت چشم و فیزیوتراپی؛ جداسازی فقط در لپروماتوز و پیش از شروع درمان چنددارویی مطرح است.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-2-15">
+      <h3 class="topic-title">بروسلوز</h3>
+      <ul class="points">
+        <li class="point">شایع‌ترین گونه در ایران: Brucella melitensis؛ ارتباط با دام و لبنیات غیرپاستوریزه.</li>
+        <li class="point">حاد: کمتر از ۳ ماه؛ تحت‌حاد: ۳ ماه تا یک سال؛ مزمن: بیش از یک سال.</li>
+        <li class="point">مورد محتمل در متن: علائم + تماس + رایت حداقل ۱:۸۰؛ قطعی با کشت، افزایش چهاربرابری تیتر یا تست‌های تأییدی.</li>
+        <li class="point">بهار و تابستان و استان‌های غرب/شمال‌غرب مهم‌ترند.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-2-16">
+      <h3 class="topic-title">وبا</h3>
+      <ul class="points">
+        <li class="point">عامل‌های اپیدمی جهانی: O1 و O139؛ کمون کوتاه حدود چند ساعت تا ۴۸ ساعت.</li>
+        <li class="point">گروه خونی O و کاهش اسید معده، خطر بیماری شدید را بیشتر می‌کنند؛ شیر مادر محافظ است.</li>
+        <li class="point">تشخیص اصلی: جداسازی ویبریو از مدفوع؛ گزارش فوری.</li>
+        <li class="point">قرنطینه روتین و پروفیلاکسی همگانی تماس‌ها توصیه نمی‌شود؛ آب سالم، بهداشت و درمان سریع دهیدراتاسیون محور است.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-2-17">
+      <h3 class="topic-title">تب تیفوئید</h3>
+      <ul class="points">
+        <li class="point">آب‌زاد و مدفوعی-دهانی؛ سن مدرسه ۵-۱۹ سال گروه پرتکرار.</li>
+        <li class="point">در کشورهای درحال‌توسعه آب آشامیدنی؛ در کشورهای پیشرفته غذای آلوده توسط حامل مزمن مسیر برجسته است.</li>
+        <li class="point">کشت خون حساسیت متوسط؛ کشت مغز استخوان حساس‌تر (بیش از ۸۰٪ در متن).</li>
+        <li class="point">قطعی با کشت سالمونلا از خون/مغز استخوان/ادرار/مدفوع یا آنتی‌ژن اختصاصی؛ ویدال به‌تنهایی قطعی نیست.</li>
+        <li class="point">حامل غذایی باید پس از درمان، کشت‌های مدفوع منفی متوالی داشته باشد.</li>
+        <li class="point trap">دام تستی: «ویدال مثبت» را معادل قطعی ندان.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-2-18">
+      <h3 class="topic-title">سالمونلای غیرتیفوئیدی</h3>
+      <ul class="points">
+        <li class="point">مهم‌ترین منبع انسانی: ماکیان و فرآورده‌ها، به‌ویژه تخم‌مرغ؛ سپس گوشت گاو و لبنیات.</li>
+        <li class="point">انتقال مدفوعی-دهانی؛ در مناطق اندمیک کودکان زیر یک سال پرخطرترند.</li>
+        <li class="point">در گرمسیر طی فصل بارانی و در اقلیم معتدل طی ماه‌های گرم بیشتر می‌شود.</li>
+        <li class="point">ایمنی کامل ایجاد نمی‌کند و عفونت مجدد ممکن است.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-2-19">
+      <h3 class="topic-title">شیگلوز و E. coli اسهالی</h3>
+      <ul class="points">
+        <li class="point">شدیدترین دیسانتری: Shigella dysenteriae type 1؛ دوز عفونی پایین و انتقال دست آلوده مهم است.</li>
+        <li class="point">تغذیه انحصاری با شیر مادر محافظ؛ قرنطینه عمومی لازم نیست ولی گزارش اسهال خونی فوری است.</li>
+        <li class="point">کارکنان مواد غذایی: بازگشت پس از نمونه‌های مدفوع منفی مطابق دستورالعمل.</li>
+        <li class="point">ETEC = اسهال مسافران؛ EPEC = اسهال کودکان کشورهای درحال‌توسعه؛ EHEC = خطر HUS.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-2-20">
+      <h3 class="topic-title">لیشمانیوز پوستی</h3>
+      <ul class="points">
+        <li class="point">نوع روستایی: L. major؛ مخزن جوندگان صحرایی؛ ناقل Phlebotomus papatasi؛ کنترل کلیدی = جوندگان.</li>
+        <li class="point">نوع شهری: مخزن انسان؛ بیماریابی فعال و کنترل ناقل اهمیت بیشتری دارد.</li>
+        <li class="point">در نوع روستایی، سمپاشی به‌تنهایی اثر چشمگیر ندارد.</li>
+        <li class="point">مشکوک: پاپول/زخم در نقاط باز؛ محتمل: بزرگ‌شدن تدریجی؛ قطعی: مشاهده انگل در اسمیر ضایعه.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-2-21">
+      <h3 class="topic-title">لیشمانیوز احشایی (کالاآزار)</h3>
+      <ul class="points">
+        <li class="point">عامل اصلی ایران: L. infantum؛ سگ مهم‌ترین منبع آلودگی انسان.</li>
+        <li class="point">بیشترین بار در شمال‌غرب؛ تظاهر بیماری اواخر زمستان/اوایل بهار بیشتر و انتقال ناقل در مرداد-شهریور اوج می‌گیرد.</li>
+        <li class="point">کمون می‌تواند طولانی و بیش از دو سال باشد.</li>
+        <li class="point">تشخیص زودرس با DAT؛ در افراد HIV مثبت، L. tropica نیز اهمیت می‌یابد.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-2-22">
+      <h3 class="topic-title">مالاریا</h3>
+      <ul class="points">
+        <li class="point">شایع‌ترین گونه ایران: P. vivax؛ فالسیپاروم بیشترین خطر مالاریای مغزی.</li>
+        <li class="point">هیپنوزوئیت فقط در vivax و ovale و علت عود است.</li>
+        <li class="point">میزبان نهایی پشه آنوفل و میزبان واسط انسان؛ ناقلان مهم جنوب‌شرق در متن: An. culicifacies و An. stephensi.</li>
+        <li class="point">کانون‌ها: سیستان‌وبلوچستان، کرمان، هرمزگان و بوشهر؛ تأخیر تشخیص علت مهم مرگ است.</li>
+        <li class="point">کنترل لارو: گامبوزیا/آفانیوس، Bti و تمفوس؛ بالغ: سمپاشی ابقایی، مه‌پاشی و پشه‌بند آغشته.</li>
+        <li class="point">بیماریابی فعال = مراجعه پرسنل به خانه/محل کار؛ غیرفعال = بیمار خود مراجعه می‌کند؛ بررسی کانون پس از کشف مورد جدید.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-2-23">
+      <h3 class="topic-title">آمیبیازیس و ژیاردیازیس</h3>
+      <ul class="points">
+        <li class="point">آمیبیاز در ۲۰-۶۰ سال بیشتر و زیر ۵ سال کمتر؛ عامل E. histolytica و مخزن انسان/حامل کیست.</li>
+        <li class="point">کیست آمیب به محیط مقاوم‌تر است ولی با حرارت کافی از بین می‌رود.</li>
+        <li class="point">ژیاردیا در کودکان سن مدرسه و محیط‌های متراکم شایع‌تر است؛ آب آلوده کلید سؤال است.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-2-24">
+      <h3 class="topic-title">بیماری‌های آمیزشی</h3>
+      <ul class="points">
+        <li class="point">گنوره: کمون معمولاً کوتاه و حداکثر حدود ۷ روز؛ پس از درمان مؤثر فقط چند ساعت قابلیت سرایت باقی می‌ماند.</li>
+        <li class="point">گنوره در بارداری: PID/سالپنژیت، زایمان زودرس و افتالمی نوزاد.</li>
+        <li class="point">کلامیدیا: LGV و سندرم رایتر؛ اغلب بی‌علامت و مخزن مهم انتقال پنهان است.</li>
+        <li class="point">HSV-2 شایع‌ترین علت زخم تناسلی در الگوی کلاسیک؛ HPV 16 و 18 مهم‌ترین تیپ‌های پرخطر سرطان سرویکس.</li>
+        <li class="point">غربالگری سیفلیس در مراقبت بارداری/قبل ازدواج در متن آزمونی برجسته است.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-2-25">
+      <h3 class="topic-title">عفونت بیمارستانی</h3>
+      <ul class="points">
+        <li class="point">در زمان پذیرش وجود نداشته و در کمون نباشد؛ معمولاً ۴۸-۷۲ ساعت پس از بستری آشکار می‌شود.</li>
+        <li class="point">باکتری‌ها شایع‌ترین عامل؛ کاندیدا شایع‌ترین قارچ؛ منبع بسیاری از موارد فلور خود بیمار است.</li>
+        <li class="point">شایع‌ترین راه انتقال: تماس غیرمستقیم با دست/سطوح؛ سل، واریسلا و سرخک انتقال هوابرد دارند.</li>
+        <li class="point">در کشورهای توسعه‌یافته UTI و در بسیاری از کشورهای درحال‌توسعه عفونت محل جراحی برجسته‌تر است.</li>
+        <li class="point">کاتتر وریدی با استافیلوکوک‌های کواگولاز منفی و کاتتر ادراری با UTI پیوند آزمونی دارد.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-2-26">
+      <h3 class="topic-title">مقاومت آنتی‌بیوتیکی</h3>
+      <ul class="points">
+        <li class="point">مصرف بی‌رویه یا ناقص در انسان و دام، تجویز بدون اندیکاسیون، خوددرمانی و استفاده در تولیدات دامی محرک اصلی است.</li>
+        <li class="point">مسافرت و تجارت جهانی انتقال سویه‌های مقاوم را تسریع می‌کند.</li>
+        <li class="point">پاسخ آزمونی معمولاً روی stewardship، تشخیص درست، دوز/مدت مناسب و کنترل عفونت می‌چرخد.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+<section class="section" id="section-3">
+  <h2 class="section-title">۳) بیماری‌های غیرواگیر، متابولیک و تغذیه</h2>
+  <div class="topic-grid">
+    <article class="topic" id="topic-3-1">
+      <h3 class="topic-title">نقشه کلی NCD</h3>
+      <ul class="points">
+        <li class="point">چهار بیماری عمده: قلبی‌عروقی، سرطان، بیماری مزمن تنفسی و دیابت.</li>
+        <li class="point">چهار عامل رفتاری مشترک: دخانیات، بی‌تحرکی، رژیم ناسالم و الکل.</li>
+        <li class="point">محرومیت اقتصادی-اجتماعی در طیف وسیعی از NCDها عامل خطر ثابت است.</li>
+        <li class="point">پیشگیری مقدماتی: سیاست و سبک زندگی سالم در کل جامعه؛ اولیه: کنترل عامل خطر؛ ثانویه: غربالگری پیش‌بالینی؛ ثالثیه: جلوگیری از ناتوانی.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-3-2">
+      <h3 class="topic-title">غربالگری؛ چه زمانی ارزش دارد؟</h3>
+      <ul class="points">
+        <li class="point">آزمون باید حساس/ویژه، قابل‌قبول و نسبتاً ارزان باشد.</li>
+        <li class="point">بیماری مرحله پیش‌بالینی قابل‌شناسایی داشته باشد و درمان زودرس سیر و مرگ را تغییر دهد.</li>
+        <li class="point">مسیر تشخیص تأییدی و درمان در دسترس باشد.</li>
+        <li class="point">غربالگری بدون درمان مؤثر یا با بیماری بسیار نادر، ارزش کمتری دارد.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-3-3">
+      <h3 class="topic-title">پرفشاری خون</h3>
+      <ul class="points">
+        <li class="point">کنترل فشارخون سکته مغزی و قلبی را کاهش می‌دهد؛ بیش از ۹۰٪ موارد اولیه/اسنشیال است.</li>
+        <li class="point">SBP از DBP پیش‌بینی‌کننده قوی‌تری برای پیامد قلبی‌عروقی؛ فشار نبض نیز پیش‌بینی‌کننده مستقل است.</li>
+        <li class="point">بخش بزرگی از مبتلایان از بیماری خود بی‌اطلاع‌اند؛ در متن ایران آگاهی حدود یک‌سوم و درمان حدود یک‌چهارم ذکر شده.</li>
+        <li class="point">پرفشاری خون خطر MI و Stroke را چند برابر می‌کند؛ الگوی غذایی غربی با HTN و الگوی ایرانی با اختلال چربی پیوند داده شده است.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-3-4">
+      <h3 class="topic-title">تب روماتیسمی و بیماری دریچه‌ای</h3>
+      <ul class="points">
+        <li class="point">عامل: استرپتوکوک بتاهمولیتیک گروه A؛ سن کلاسیک ۵-۱۵ سال.</li>
+        <li class="point">Jones ماژور: کاردیت، پلی‌آرتریت مهاجر، کره سیدنهام، اریتم مارژیناتوم و ندول زیرجلدی؛ پلی‌آرتریت شایع‌ترین تظاهر است.</li>
+        <li class="point">درمان فارنژیت در ۹ روز اول از حمله نخست پیشگیری می‌کند.</li>
+        <li class="point">پروفیلاکسی ثانویه: بنزاتین پنی‌سیلین حدود هر ۳ هفته؛ مدت با وجود کاردیت/درگیری دریچه طولانی‌تر می‌شود.</li>
+        <li class="point">کشورهای درحال‌توسعه: روماتیسمی و دریچه میترال؛ کشورهای توسعه‌یافته: دژنراتیو سالمندی.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-3-5">
+      <h3 class="topic-title">بیماری ایسکمیک قلبی</h3>
+      <ul class="points">
+        <li class="point">ریسک‌های اثبات‌شده و قابل‌مداخله: سیگار، LDL/رژیم پرکلسترول، HTN و هیپرتروفی بطن چپ.</li>
+        <li class="point">عوامل محتملِ قابل‌اصلاح: بی‌تحرکی، دیابت، تری‌گلیسرید بالا و اختلالات متابولیک.</li>
+        <li class="point">سن، جنس، سابقه خانوادگی زودرس و وضعیت اقتصادی-اجتماعی غیرقابل‌تعدیل‌اند.</li>
+        <li class="point">در ایران بیماری قلبی‌عروقی علت اول مرگ و سن ابتلا رو به کاهش توصیف شده؛ مداخله رفتاری بیشترین اثر جمعیتی دارد.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-3-6">
+      <h3 class="topic-title">دیابت</h3>
+      <ul class="points">
+        <li class="point">معیارها: FPG ≥126، HbA1c ≥6.5٪، قند ۲ساعته OGTT ≥200، یا قند تصادفی ≥200 همراه علائم.</li>
+        <li class="point">غربالگری دیابت بارداری در اواخر سه‌ماهه دوم، حدود هفته ۲۴-۲۸؛ در فایل عدد ۲۶-۲۸ نیز تکرار شده است.</li>
+        <li class="point">دیابت و چاقی «اپیدمی دوقلو» هستند؛ زنان در متن ایران شیوع بالاتری دارند و بخشی از بیماران از تشخیص بی‌خبرند.</li>
+        <li class="point">مراقبت سطحی: بهورز شناسایی خطر؛ پزشک عمومی تشخیص/کنترل؛ متخصص برای موارد کنترل‌نشده یا عارضه‌دار؛ مرکز فوق‌تخصصی برای عوارض پیچیده.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-3-7">
+      <h3 class="topic-title">چاقی</h3>
+      <ul class="points">
+        <li class="point">بزرگسال: BMI &lt;18.5 کم‌وزن، 18.5-24.9 طبیعی، 25-29.9 اضافه‌وزن، ≥30 چاقی.</li>
+        <li class="point">کودک: &lt;صدک۵ کم‌وزن، ۵-۸۵ طبیعی، ۸۵-۹۵ در معرض اضافه‌وزن، &gt;۹۵ اضافه‌وزن/چاقی در چارچوب منبع.</li>
+        <li class="point">چاقی شکمی پیش‌بینی‌کننده مستقل پیامد قلبی‌عروقی است؛ معیار رایج، دور کمر است نه نسبت دور کمر به باسن.</li>
+        <li class="point">در ایران چاقی شکمی زنان بیشتر؛ با تحصیلات رابطه معکوس و با تعداد فرزندان رابطه مستقیم گزارش شده.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-3-8">
+      <h3 class="topic-title">استئوپروز</h3>
+      <ul class="points">
+        <li class="point">ابزار اصلی سنجش: DXA؛ T-score بین -1 تا -2.5 استئوپنی و ≤-2.5 استئوپروز.</li>
+        <li class="point">ریسک‌ها: وزن پایین، سیگار، یائسگی/کمبود استروژن، گلوکوکورتیکوئید، هپارین، الکل، تیروتوکسیکوز و اختلالات غدد.</li>
+        <li class="point">کمبود استروژن عامل محوری پوکی پس از یائسگی؛ بیشترین بار DALY در شکستگی لگن است.</li>
+        <li class="point">دام: PTH متناوب می‌تواند درمان باشد؛ «مصرف زیاد هورمون پاراتیروئید» را به‌طور ساده ریسک قطعی حساب نکن.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-3-9">
+      <h3 class="topic-title">هیپوتیروئیدی نوزادان</h3>
+      <ul class="points">
+        <li class="point">غربالگری اولیه با TSH خون پاشنه پا در روزهای نخست تولد.</li>
+        <li class="point">رابطه وزن تولد U شکل: وزن بسیار کم و بسیار بالا خطر را بیشتر می‌کند؛ در دختران شایع‌تر.</li>
+        <li class="point">ریسک مادری: سن بالا، دیابت/پره‌اکلامپسی، سزارین و داروهایی مانند لیتیوم و آمیودارون؛ محیطی: کمبود ید و پرکلرات.</li>
+        <li class="point">ید روزانه در منبع: زیر۵سال ۹۰، ۶-۱۲سال ۱۲۰، بالای۱۲سال ۱۵۰ و بارداری/شیردهی ۲۵۰ میکروگرم.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-3-10">
+      <h3 class="topic-title">سوءتغذیه پروتئین-انرژی</h3>
+      <ul class="points">
+        <li class="point">قد برای سن = کوتاه‌قدی و سوءتغذیه مزمن؛ وزن برای قد = لاغری و سوءتغذیه حاد؛ وزن برای سن = کم‌وزنی و ترکیبی.</li>
+        <li class="point">برای ارزیابی جامعه، هر سه شاخص زیر ۵ سال بررسی شوند.</li>
+        <li class="point">علل نزدیک: بیماری و دریافت ناکافی؛ علل دور: فقر، مراقبت و الگوی تغذیه.</li>
+        <li class="point">در متن ایران، روستا و دختران بار بیشتری دارند.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-3-11">
+      <h3 class="topic-title">ریزمغذی‌ها و کمبود ید</h3>
+      <ul class="points">
+        <li class="point">چهار راهبرد: تنوع غذایی، غنی‌سازی، مکمل‌یاری و اقدامات بهداشت عمومی.</li>
+        <li class="point">آهن: بارداری و کودکان زیر۲سال گروه اصلی؛ ویتامین A/D طبق برنامه کشوری مکمل‌یاری می‌شوند.</li>
+        <li class="point">ارزیابی ید: میانه ید ادرار دانش‌آموزان ۸-۱۰ سال بهترین شاخص؛ شیوع گواتر نیز کمک‌کننده است.</li>
+        <li class="point">منطقه آندمیک: شیوع گواتر &gt;۱۰٪؛ گواتر ۲۰-۳۹.۹٪ با ید ادرار ۲-۴.۹ میکروگرم/دسی‌لیتر = مشکل متوسط و مداخله مهم/فوری.</li>
+        <li class="point">شدید: ید ادرار &lt;۲ و گواتر ≥۳۰٪؛ کرتینیسم شدیدترین پیامد کمبود ید است.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+<section class="section" id="section-4">
+  <h2 class="section-title">۴) بلاها، حوادث، سلامت روان، اقلیم و رفتار</h2>
+  <div class="topic-grid">
+    <article class="topic" id="topic-4-1">
+      <h3 class="topic-title">بلایای طبیعی</h3>
+      <ul class="points">
+        <li class="point">Resilience = ظرفیت جذب آسیب و بازتوانی؛ Vulnerability = ویژگی‌هایی که احتمال آسیب را بالا می‌برد.</li>
+        <li class="point">بلای شدید/Intensive: فاصله زمانی طولانی‌تر، تلفات/تخریب زیاد؛ Extensive: رخداد بیشتر، پراکندگی جغرافیایی و شدت کمتر.</li>
+        <li class="point">سیل بیشترین تعداد رخداد و زلزله بیشترین سهم مرگ را دارد.</li>
+        <li class="point">ریسک بلایا تابع مخاطره و آسیب‌پذیری و با آمادگی رابطه معکوس دارد.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-4-2">
+      <h3 class="topic-title">حوادث ترافیکی</h3>
+      <ul class="points">
+        <li class="point">در جهان، عابران پیاده سهم برجسته مرگ دارند؛ کودکان قربانی مهم حوادث عابر پیاده‌اند.</li>
+        <li class="point">بیش از ۷۰٪ مرگ‌ها در مردان و بار عمده در سنین فعال ۱۵-۴۴ سال است.</li>
+        <li class="point">راهبرد هادون: پیش از حادثه، حین حادثه و پس از حادثه؛ مداخله روی انسان، وسیله، محیط و انرژی.</li>
+        <li class="point">سرعت بالا زمان واکنش و ترمز را کم و شدت انرژی را زیاد می‌کند.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-4-3">
+      <h3 class="topic-title">سقوط</h3>
+      <ul class="points">
+        <li class="point">سالمندان: سقوط از سطح هم‌تراز و شکستگی گردن فمور؛ جوانان: شکستگی ساعد؛ کودکان: سقوط از ارتفاع.</li>
+        <li class="point">در کودکان ۵-۱۶ سال از علل مهم سال‌های از دست‌رفته است.</li>
+        <li class="point">پیشگیری: آموزش، اصلاح محیط، ارزیابی دارو/بینایی و تقویت عضله/تعادل؛ در سؤال «گروه پرخطر» اصلاح محیط و آموزش را جدی بگیر.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-4-4">
+      <h3 class="topic-title">سوختگی</h3>
+      <ul class="points">
+        <li class="point">Scald = سوختگی با مایع داغ و شایع‌ترین نوع در کودکان.</li>
+        <li class="point">تماس مستقیم با شعله شایع‌ترین عامل سوختگی منجر به مرگ در متن است.</li>
+        <li class="point">شعار Stop, Drop, Roll برای آتش‌گرفتن لباس؛ آب خنک جاری، نه یخ مستقیم، اقدام اولیه مناسب است.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-4-5">
+      <h3 class="topic-title">افسردگی و اضطراب</h3>
+      <ul class="points">
+        <li class="point">افسردگی در هر سن ممکن است؛ حدود نیمی از موارد در ۲۰-۵۰ سال؛ در زنان و بیکاران بیشتر.</li>
+        <li class="point">با تحصیلات رابطه معکوس؛ شهر کمی بیشتر از روستا؛ طلاق‌گرفته بیش از بیوه در معرض خطر.</li>
+        <li class="point">در ایرانِ منبع، زنان خانه‌دار، بازنشستگان و بیکاران گروه‌های شغلی برجسته‌اند.</li>
+        <li class="point">افسردگی علت اول YLD در جهان در متن آموزشی است.</li>
+        <li class="point">پیشگیری اولیه: سواد سلامت روان/مدارس؛ ثانویه: دسترسی و تمرکززدایی تشخیص و درمان در خدمات عمومی.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-4-6">
+      <h3 class="topic-title">تغییرات اقلیمی</h3>
+      <ul class="points">
+        <li class="point">بیماری‌های حساس: مالاریا، لیشمانیوز، دنگی، تب زرد، لایم، شاگاس، انکوسرکیاز، تریپانوزومیاز آفریقایی و نیل غربی.</li>
+        <li class="point">آنفلوانزا در سؤال کلاسیک «بیماری حساس به تغییر اقلیم از راه ناقل حشره‌ای» استثناست.</li>
+        <li class="point">گرمایش، محدوده جغرافیایی و فصل فعالیت ناقلان را تغییر می‌دهد.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-4-7">
+      <h3 class="topic-title">دخانیات</h3>
+      <ul class="points">
+        <li class="point">تنباکو مهم‌ترین علت مرگ قابل‌پیشگیری؛ نوجوانان آسیب‌پذیرترین گروه برای شروع مصرف.</li>
+        <li class="point">وجود خویشاوند سیگاری در خانه عامل قوی گرایش نوجوانان است.</li>
+        <li class="point">افزایش مالیات/قیمت و محدودیت فروش به نوجوانان = پیشگیری مقدماتی و سیاست جمعیتی.</li>
+        <li class="point">ترک دخانیات یکی از پُربازده‌ترین مداخلات پیشگیری قلبی و سرطان است.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-4-8">
+      <h3 class="topic-title">اعتیاد</h3>
+      <ul class="points">
+        <li class="point">در متن ایران، تریاک شایع‌ترین ماده سنتی مصرفی است.</li>
+        <li class="point">ریسک‌ها: مرد بودن، دسترسی، همسالان، مشکلات خانوادگی و بیماری روانی.</li>
+        <li class="point">دام داده‌ای: ثبت چندسازمانی می‌تواند دوباره‌شماری و نبود اتصال داده‌ها ایجاد کند.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-4-9">
+      <h3 class="topic-title">سلامت اجتماعی</h3>
+      <ul class="points">
+        <li class="point">تعریف WHO: رفاه کامل جسمی، روانی و اجتماعی؛ نه صرفاً فقدان بیماری.</li>
+        <li class="point">شاخص میرینگوف برای سنجش سلامت اجتماعی در سنین مختلف ذکر شده است.</li>
+        <li class="point">در متن منبع، مرگ نوزادان و امید زندگی رو به بهبود؛ تهران بالاترین و سیستان‌وبلوچستان پایین‌ترین سطح سلامت اجتماعی گزارش شده.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+<section class="section" id="section-5">
+  <h2 class="section-title">۵) سرطان‌ها؛ مقایسه سریع و دام‌های غربالگری</h2>
+  <div class="topic-grid">
+    <article class="topic" id="topic-5-1">
+      <h3 class="topic-title">سرطان پستان</h3>
+      <ul class="points">
+        <li class="point">شایع‌ترین سرطان زنان ایرانی و در متن، شایع‌ترین علت مرگ سرطانی زنان.</li>
+        <li class="point">ریسک‌ها: سن، منارک زودرس، یائسگی دیررس، نخستین بارداری بعد از ۳۰، عدم/کوتاهی شیردهی، چاقی پس از یائسگی، سابقه خانوادگی و BRCA1/2.</li>
+        <li class="point">LCIS خطر دوطرفه را چند برابر می‌کند؛ رادیوتراپی قفسه سینه در سن پایین ریسک را بالا می‌برد.</li>
+        <li class="point">محور کنترل: تشخیص زودرس و غربالگری؛ سونوگرافی ابزار غربالگری استاندارد نیست و بیشتر برای افتراق کیستیک/جامد است.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-5-2">
+      <h3 class="topic-title">سرطان معده</h3>
+      <ul class="points">
+        <li class="point">عامل محوری: H. pylori به‌ویژه CagA؛ سابقه خانوادگی از عوامل قوی و شایع است.</li>
+        <li class="point">ریسک‌ها: مرد، سن بالاتر، گاستریت آتروفیک، آنمی پرنیشیوز، گروه خونی A، غذای شور/دودی، نیتریت، گوشت قرمز و مصرف کم میوه/سبزی.</li>
+        <li class="point">محافظ‌ها در متن: میوه/سبزی و پلی‌فنل چای سبز؛ سیگار ارتباط ضعیف تا متوسط و الکل ارتباط ثابت‌شده ندارد.</li>
+        <li class="point">در منبع ایران، سرطان معده از علل اصلی مرگ سرطانی و در مردان بسیار برجسته است.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-5-3">
+      <h3 class="topic-title">سرطان مری</h3>
+      <ul class="points">
+        <li class="point">در ایران SCC همچنان شایع‌تر؛ همراهی سیگار و تریاک خطر را بیش از دو برابر می‌کند.</li>
+        <li class="point">چای بسیار داغ، آب آشامیدنی غیربهداشتی، مصرف کم میوه/سبزی و غذاهای سرخ/کبابی از عوامل مهم مطالعات ایران‌اند.</li>
+        <li class="point">گنبدکاووس/گلستان از کانون‌های پُربروز جهان؛ در متن، SCC رو به کاهش و آدنوکارسینوم رو به افزایش است.</li>
+        <li class="point">آدنوکارسینوم را با GERD/Barrett، چاقی و جنس مرد پیوند بده.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-5-4">
+      <h3 class="topic-title">سرطان کولورکتال</h3>
+      <ul class="points">
+        <li class="point">ریسک‌ها: چاقی و سندرم متابولیک، گوشت قرمز/فرآوری‌شده، دیابت، IBD و سابقه خانوادگی.</li>
+        <li class="point">محافظ‌ها: کلسیم، لبنیات، میوه، سبزی و غلات؛ فعالیت فیزیکی ارتباط محافظتی روشن‌تر با کولون دارد تا رکتوم.</li>
+        <li class="point">HPV و تا حدی CMV در سؤال‌های سرطان آنال مطرح می‌شوند، نه سرطان کولون کلاسیک.</li>
+        <li class="point">در متن منبع: FIT هر ۲-۳ سال در سنین حدود ۵۰-۷۵ و کولونوسکوپی پس از تست مثبت؛ دستورالعمل آزمون خود را ملاک قرار بده.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-5-5">
+      <h3 class="topic-title">سرطان پروستات</h3>
+      <ul class="points">
+        <li class="point">کشورهای با HDI بالا: بروز بیشتر ولی مرگ کمتر، به‌علت تشخیص/درمان بهتر.</li>
+        <li class="point">ریسک‌های کلاسیک: سن، سابقه خانوادگی، نژاد و الگوی غذایی پرچربی/گوشت قرمز؛ در متن لبنیات و کلسیم زیاد نیز مطرح شده.</li>
+        <li class="point">استاتین‌ها در سؤال منبع به‌عنوان عامل محافظ احتمالی آمده‌اند.</li>
+        <li class="point">PSA غربالگری جمعیتی قطعی و بی‌چالش نیست؛ تصمیم‌گیری فردی و دستورالعمل همان آزمون مهم است.</li>
+      </ul>
+    </article>
+    <article class="topic" id="topic-5-6">
+      <h3 class="topic-title">سرطان ریه</h3>
+      <ul class="points">
+        <li class="point">سیگار مهم‌ترین عامل؛ مواجهه شغلی مانند آزبست ریسک را افزایش می‌دهد.</li>
+        <li class="point">غربالگری گروه پرخطر با CT کم‌دوز، نه رادیوگرافی ساده.</li>
+        <li class="point">در متن: روند جهانی مردان نزولی و زنان صعودی؛ در ایران روند مرگ/بروز افزایشی توصیف شده.</li>
+        <li class="point">الکل رابطه علّی قطعی با سرطان ریه ندارد؛ گزینه‌های حنجره، پستان و کولون ارتباط شناخته‌شده‌تری دارند.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+<section class="section" id="section-6">
+  <h2 class="section-title">مرور ۲۴ ساعت آخر</h2>
+  <ol class="rapid-grid">
+    <li class="rapid-point">Infectivity → حمله ثانویه | Pathogenicity → بالینی/آلوده | Virulence → شدید/بالینی.</li>
+    <li class="rapid-point">کمون = ورود تا علامت | نهفتگی = فعال‌شدن مجدد | واگیری = زمان دفع عامل.</li>
+    <li class="rapid-point">مراقبت = جمع‌آوری + تحلیل + تفسیر + انتشار منظم.</li>
+    <li class="rapid-point">هشداردهنده حساس‌تر؛ اپیدمیک اختصاصی‌تر و PPV بالاتر.</li>
+    <li class="rapid-point">HIV متمرکز: عمومی &lt;۱٪، گروه پرخطر &gt;۵٪.</li>
+    <li class="rapid-point">AIDS: CD4&lt;200 یا OI.</li>
+    <li class="rapid-point">HBV واکسن: فقط anti-HBs | عفونت قبلی: anti-HBs + anti-HBc IgG.</li>
+    <li class="rapid-point">HAV مزمن نمی‌شود | HEV در بارداری خطرناک‌تر.</li>
+    <li class="rapid-point">Influenza shift فقط A؛ drift در A و B.</li>
+    <li class="rapid-point">سرخک زمستان/بهار؛ سرخجه ۱ هفته قبل تا ۱ هفته بعد راش.</li>
+    <li class="rapid-point">واکسن سرخجه در بارداری ممنوع؛ تزریق تصادفی = الزام سقط نیست.</li>
+    <li class="rapid-point">پولیو: &gt;۹۹٪ غیر فلجی؛ یک مورد وحشی = اپیدمی.</li>
+    <li class="rapid-point">هاری: Cat II واکسن؛ Cat III واکسن + RIG.</li>
+    <li class="rapid-point">CCHF: Hyalomma؛ ایران = تماس خون/گوشت دام.</li>
+    <li class="rapid-point">MERS: خفاش → شتر.</li>
+    <li class="rapid-point">سل: کشف سریع + درمان زودرس؛ قرنطینه عمومی نه.</li>
+    <li class="rapid-point">جذام: انسان/ترشحات بینی؛ بدون فصل؛ حذف &lt;۱/۱۰هزار.</li>
+    <li class="rapid-point">بروسلوز: &lt;۳ماه حاد؛ ۳-۱۲ماه تحت‌حاد؛ &gt;۱سال مزمن.</li>
+    <li class="rapid-point">وبا: O1/O139؛ گزارش فوری؛ گروه O خطر شدیدتر.</li>
+    <li class="rapid-point">تیفوئید: کشت مغز استخوان از خون حساس‌تر؛ ویدال قطعی نیست.</li>
+    <li class="rapid-point">NTS: تخم‌مرغ/ماکیان | شیگلا دیسانتری ۱ شدیدترین.</li>
+    <li class="rapid-point">سالک روستایی: major + جوندگان + papatasi.</li>
+    <li class="rapid-point">کالاآزار ایران: infantum + سگ.</li>
+    <li class="rapid-point">مالاریا ایران: vivax؛ فالسیپاروم = مغزی؛ هیپنوزوئیت در vivax/ovale.</li>
+    <li class="rapid-point">عفونت بیمارستانی: ۴۸-۷۲ ساعت؛ تماس غیرمستقیم شایع.</li>
+    <li class="rapid-point">NCD: دخانیات + بی‌تحرکی + رژیم ناسالم + الکل.</li>
+    <li class="rapid-point">HTN: SBP مهم‌تر؛ &gt;۹۰٪ اولیه.</li>
+    <li class="rapid-point">تب روماتیسمی: GAS، سن ۵-۱۵، درمان فارنژیت تا ۹ روز.</li>
+    <li class="rapid-point">دیابت: 126 / 6.5 / 200 / 200+علائم.</li>
+    <li class="rapid-point">چاقی شکمی: دور کمر؛ زنان ایران بیشتر.</li>
+    <li class="rapid-point">PEM: H/A مزمن، W/H حاد، W/A ترکیبی.</li>
+    <li class="rapid-point">ید: میانه ادرار دانش‌آموز ۸-۱۰ سال بهترین شاخص.</li>
+    <li class="rapid-point">بلایا: سیل بیشترین رخداد؛ زلزله بیشترین مرگ.</li>
+    <li class="rapid-point">ترافیک: عابر پیاده؛ مردان و سن فعال.</li>
+    <li class="rapid-point">سوختگی کودک = Scald؛ مرگ = شعله.</li>
+    <li class="rapid-point">تنباکو = مهم‌ترین مرگ قابل‌پیشگیری.</li>
+    <li class="rapid-point">پستان: تشخیص زودرس؛ سونوگرافی غربالگری استاندارد نیست.</li>
+    <li class="rapid-point">معده: H. pylori/CagA + سابقه خانوادگی.</li>
+    <li class="rapid-point">مری: چای داغ + تریاک/سیگار؛ گلستان.</li>
+    <li class="rapid-point">کولورکتال: گوشت فرآوری‌شده/چاقی/IBD؛ کلسیم و فیبر محافظ.</li>
+    <li class="rapid-point">ریه: سیگار؛ غربالگری پرخطر با LDCT.</li>
+  </ol>
+</section>
+</main>
+</body>
+</html>
